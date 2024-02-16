@@ -9,21 +9,24 @@
 /* Begin PBXBuildFile section */
 		BA5A1DE22B562D3D0081D2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1DE12B562D3D0081D2E8 /* AppDelegate.swift */; };
 		BA5A1DE42B562D3D0081D2E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1DE32B562D3D0081D2E8 /* SceneDelegate.swift */; };
-		BA5A1DE62B562D3D0081D2E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1DE52B562D3D0081D2E8 /* ViewController.swift */; };
 		BA5A1DE92B562D3D0081D2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5A1DE72B562D3D0081D2E8 /* Main.storyboard */; };
 		BA5A1DEB2B562D3E0081D2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA5A1DEA2B562D3E0081D2E8 /* Assets.xcassets */; };
 		BA5A1DEE2B562D3E0081D2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5A1DEC2B562D3E0081D2E8 /* LaunchScreen.storyboard */; };
+		BA6746042B5632BC006C7EEA /* FileHandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6746032B5632BC006C7EEA /* FileHandleViewController.swift */; };
+		BA6746062B563322006C7EEA /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6746052B563322006C7EEA /* FileHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BA5A1DDE2B562D3D0081D2E8 /* stockViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stockViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5A1DE12B562D3D0081D2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA5A1DE32B562D3D0081D2E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BA5A1DE52B562D3D0081D2E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA5A1DE82B562D3D0081D2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA5A1DEA2B562D3E0081D2E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA5A1DED2B562D3E0081D2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA5A1DEF2B562D3E0081D2E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA6746032B5632BC006C7EEA /* FileHandleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandleViewController.swift; sourceTree = "<group>"; };
+		BA6746052B563322006C7EEA /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
+		BAB3D8FF2B5E1865009E4AA9 /* stockViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = stockViewer.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +59,41 @@
 		BA5A1DE02B562D3D0081D2E8 /* stockViewer */ = {
 			isa = PBXGroup;
 			children = (
+				BAB3D8FF2B5E1865009E4AA9 /* stockViewer.entitlements */,
+				BA5A1DFA2B5631270081D2E8 /* Model */,
+				BA5A1DF92B5631170081D2E8 /* ViewController */,
+				BA5A1DF82B5630E90081D2E8 /* Helper */,
 				BA5A1DE12B562D3D0081D2E8 /* AppDelegate.swift */,
 				BA5A1DE32B562D3D0081D2E8 /* SceneDelegate.swift */,
-				BA5A1DE52B562D3D0081D2E8 /* ViewController.swift */,
 				BA5A1DE72B562D3D0081D2E8 /* Main.storyboard */,
 				BA5A1DEA2B562D3E0081D2E8 /* Assets.xcassets */,
 				BA5A1DEC2B562D3E0081D2E8 /* LaunchScreen.storyboard */,
 				BA5A1DEF2B562D3E0081D2E8 /* Info.plist */,
 			);
 			path = stockViewer;
+			sourceTree = "<group>";
+		};
+		BA5A1DF82B5630E90081D2E8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BA6746052B563322006C7EEA /* FileHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		BA5A1DF92B5631170081D2E8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BA6746032B5632BC006C7EEA /* FileHandleViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BA5A1DFA2B5631270081D2E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA5A1DE62B562D3D0081D2E8 /* ViewController.swift in Sources */,
 				BA5A1DE22B562D3D0081D2E8 /* AppDelegate.swift in Sources */,
+				BA6746042B5632BC006C7EEA /* FileHandleViewController.swift in Sources */,
 				BA5A1DE42B562D3D0081D2E8 /* SceneDelegate.swift in Sources */,
+				BA6746062B563322006C7EEA /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +315,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = stockViewer/stockViewer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N9643UQKT5;
@@ -295,6 +326,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,6 +345,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = stockViewer/stockViewer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N9643UQKT5;
@@ -323,6 +356,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
