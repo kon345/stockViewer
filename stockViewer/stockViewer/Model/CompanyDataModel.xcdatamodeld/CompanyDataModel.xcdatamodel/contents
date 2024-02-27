@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23D60" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Company" representedClassName="Company" syncable="YES">
+        <attribute name="bigCategory" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="concept" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="lastYear" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[Double]"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="number" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="smallCategory" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="thisYear" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="yearData" attributeType="Binary"/>
+    </entity>
+    <entity name="CompanyBigCategory" representedClassName="CompanyBigCategory" syncable="YES">
+        <attribute name="bigCategory" attributeType="String"/>
+        <attribute name="number" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="CompanySmallCategory" representedClassName="CompanySmallCategory" syncable="YES">
+        <attribute name="number" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="smallCategory" attributeType="String"/>
+    </entity>
+</model>

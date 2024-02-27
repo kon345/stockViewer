@@ -14,6 +14,14 @@
 		BA5A1DEE2B562D3E0081D2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5A1DEC2B562D3E0081D2E8 /* LaunchScreen.storyboard */; };
 		BA6746042B5632BC006C7EEA /* FileHandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6746032B5632BC006C7EEA /* FileHandleViewController.swift */; };
 		BA6746062B563322006C7EEA /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6746052B563322006C7EEA /* FileHelper.swift */; };
+		BA94A52A2B873A37001BA82B /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94A5292B873A37001BA82B /* CoreDataHelper.swift */; };
+		BA94A5332B873EEA001BA82B /* CompanyDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA94A5312B873EEA001BA82B /* CompanyDataModel.xcdatamodeld */; };
+		BAACEEA82B8DDCB9002039A4 /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACEEA22B8DDCB9002039A4 /* Company+CoreDataClass.swift */; };
+		BAACEEA92B8DDCB9002039A4 /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACEEA32B8DDCB9002039A4 /* Company+CoreDataProperties.swift */; };
+		BAACEEAA2B8DDCB9002039A4 /* CompanySmallCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACEEA42B8DDCB9002039A4 /* CompanySmallCategory+CoreDataClass.swift */; };
+		BAACEEAB2B8DDCB9002039A4 /* CompanySmallCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACEEA52B8DDCB9002039A4 /* CompanySmallCategory+CoreDataProperties.swift */; };
+		BAACEEAC2B8DDCB9002039A4 /* CompanyBigCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACEEA62B8DDCB9002039A4 /* CompanyBigCategory+CoreDataClass.swift */; };
+		BAACEEAD2B8DDCB9002039A4 /* CompanyBigCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACEEA72B8DDCB9002039A4 /* CompanyBigCategory+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,14 @@
 		BA5A1DEF2B562D3E0081D2E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA6746032B5632BC006C7EEA /* FileHandleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandleViewController.swift; sourceTree = "<group>"; };
 		BA6746052B563322006C7EEA /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
+		BA94A5292B873A37001BA82B /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		BA94A5322B873EEA001BA82B /* CompanyDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CompanyDataModel.xcdatamodel; sourceTree = "<group>"; };
+		BAACEEA22B8DDCB9002039A4 /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Company+CoreDataClass.swift"; path = "stockViewer/Model/Company+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BAACEEA32B8DDCB9002039A4 /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Company+CoreDataProperties.swift"; path = "stockViewer/Model/Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BAACEEA42B8DDCB9002039A4 /* CompanySmallCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CompanySmallCategory+CoreDataClass.swift"; path = "stockViewer/Model/CompanySmallCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BAACEEA52B8DDCB9002039A4 /* CompanySmallCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CompanySmallCategory+CoreDataProperties.swift"; path = "stockViewer/Model/CompanySmallCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BAACEEA62B8DDCB9002039A4 /* CompanyBigCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CompanyBigCategory+CoreDataClass.swift"; path = "stockViewer/Model/CompanyBigCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BAACEEA72B8DDCB9002039A4 /* CompanyBigCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CompanyBigCategory+CoreDataProperties.swift"; path = "stockViewer/Model/CompanyBigCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BAB3D8FF2B5E1865009E4AA9 /* stockViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = stockViewer.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,6 +59,12 @@
 		BA5A1DD52B562D3D0081D2E8 = {
 			isa = PBXGroup;
 			children = (
+				BAACEEA22B8DDCB9002039A4 /* Company+CoreDataClass.swift */,
+				BAACEEA32B8DDCB9002039A4 /* Company+CoreDataProperties.swift */,
+				BAACEEA42B8DDCB9002039A4 /* CompanySmallCategory+CoreDataClass.swift */,
+				BAACEEA52B8DDCB9002039A4 /* CompanySmallCategory+CoreDataProperties.swift */,
+				BAACEEA62B8DDCB9002039A4 /* CompanyBigCategory+CoreDataClass.swift */,
+				BAACEEA72B8DDCB9002039A4 /* CompanyBigCategory+CoreDataProperties.swift */,
 				BA5A1DE02B562D3D0081D2E8 /* stockViewer */,
 				BA5A1DDF2B562D3D0081D2E8 /* Products */,
 			);
@@ -92,6 +114,8 @@
 		BA5A1DFA2B5631270081D2E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BA94A5292B873A37001BA82B /* CoreDataHelper.swift */,
+				BA94A5312B873EEA001BA82B /* CompanyDataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,10 +191,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA94A52A2B873A37001BA82B /* CoreDataHelper.swift in Sources */,
+				BAACEEAC2B8DDCB9002039A4 /* CompanyBigCategory+CoreDataClass.swift in Sources */,
 				BA5A1DE22B562D3D0081D2E8 /* AppDelegate.swift in Sources */,
+				BAACEEA92B8DDCB9002039A4 /* Company+CoreDataProperties.swift in Sources */,
 				BA6746042B5632BC006C7EEA /* FileHandleViewController.swift in Sources */,
 				BA5A1DE42B562D3D0081D2E8 /* SceneDelegate.swift in Sources */,
 				BA6746062B563322006C7EEA /* FileHelper.swift in Sources */,
+				BAACEEAA2B8DDCB9002039A4 /* CompanySmallCategory+CoreDataClass.swift in Sources */,
+				BAACEEAD2B8DDCB9002039A4 /* CompanyBigCategory+CoreDataProperties.swift in Sources */,
+				BAACEEA82B8DDCB9002039A4 /* Company+CoreDataClass.swift in Sources */,
+				BA94A5332B873EEA001BA82B /* CompanyDataModel.xcdatamodeld in Sources */,
+				BAACEEAB2B8DDCB9002039A4 /* CompanySmallCategory+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +424,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BA94A5312B873EEA001BA82B /* CompanyDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BA94A5322B873EEA001BA82B /* CompanyDataModel.xcdatamodel */,
+			);
+			currentVersion = BA94A5322B873EEA001BA82B /* CompanyDataModel.xcdatamodel */;
+			path = CompanyDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BA5A1DD62B562D3D0081D2E8 /* Project object */;
 }

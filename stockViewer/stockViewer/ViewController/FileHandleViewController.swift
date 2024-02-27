@@ -54,8 +54,9 @@ extension FileHandleViewController: UIDocumentPickerDelegate{
 //                let resourceValue = try url.resourceValues(forKeys: [.fileSizeKey])
 //                print(fileName)
                 let content = try String(contentsOf: url, encoding: .utf8)
-                let data = parseCSVData(csv: content)
-                print(data[0].lastYear)
+                let companyDataList = FileHelper.shared.parseCSVData(csv: content)
+                
+                FileHelper.shared.saveCompany(companies: companyDataList)
             }
         } catch  {
             print(error.localizedDescription)
