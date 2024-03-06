@@ -2,7 +2,7 @@
 //  CompanyBigCategory+CoreDataProperties.swift
 //  stockViewer
 //
-//  Created by 林裕和 on 2024/2/27.
+//  Created by 林裕和 on 2024/3/6.
 //
 //
 
@@ -16,8 +16,9 @@ extension CompanyBigCategory {
         return NSFetchRequest<CompanyBigCategory>(entityName: "CompanyBigCategory")
     }
 
+    @NSManaged public var bigCategory: String?
     @NSManaged public var number: Int32
-    @NSManaged public var bigCategory: String
+    @NSManaged public var company: Company?
 
 }
 
