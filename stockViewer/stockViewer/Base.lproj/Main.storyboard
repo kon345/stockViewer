@@ -25,12 +25,22 @@
                                     <action selector="importFileBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ema-Ib-pNz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2Z-Ro-v34">
+                                <rect key="frame" x="131" y="186" width="128" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="刪除全部資料"/>
+                                <connections>
+                                    <action selector="deleteAllBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VJc-W5-eUh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="BT7-g0-JDX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="E7o-eI-dt0"/>
+                            <constraint firstItem="A2Z-Ro-v34" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TCP-BL-UJK"/>
                             <constraint firstItem="BT7-g0-JDX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gnk-VS-dpz"/>
+                            <constraint firstItem="A2Z-Ro-v34" firstAttribute="top" secondItem="BT7-g0-JDX" secondAttribute="bottom" constant="40" id="sE9-pR-WVU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SQp-hp-1A0"/>

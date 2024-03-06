@@ -16,9 +16,9 @@ extension CompanyBigCategory {
         return NSFetchRequest<CompanyBigCategory>(entityName: "CompanyBigCategory")
     }
 
-    @NSManaged public var bigCategory: String?
+    @NSManaged public var bigCategory: String
     @NSManaged public var number: Int32
-    @NSManaged public var company: Company?
+    @NSManaged public var company: Company
 
 }
 

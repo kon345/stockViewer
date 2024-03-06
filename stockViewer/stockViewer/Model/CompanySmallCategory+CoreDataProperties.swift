@@ -17,8 +17,8 @@ extension CompanySmallCategory {
     }
 
     @NSManaged public var number: Int32
-    @NSManaged public var smallCategory: String?
-    @NSManaged public var company: Company?
+    @NSManaged public var smallCategory: String
+    @NSManaged public var company: Company
 
 }
 

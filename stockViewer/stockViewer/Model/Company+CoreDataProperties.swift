@@ -16,16 +16,16 @@ extension Company {
         return NSFetchRequest<Company>(entityName: "Company")
     }
 
-    @NSManaged public var bigCategory: [String]?
-    @NSManaged public var concept: [String]?
-    @NSManaged public var lastYear: [Double]?
-    @NSManaged public var name: String?
+    @NSManaged public var bigCategory: [String]
+    @NSManaged public var concept: [String]
+    @NSManaged public var lastYear: [Double]
+    @NSManaged public var name: String
     @NSManaged public var number: Int32
-    @NSManaged public var smallCategory: [String]?
-    @NSManaged public var thisYear: [String]?
-    @NSManaged public var yearData: Data?
-    @NSManaged public var companyBig: NSSet?
-    @NSManaged public var companySmall: NSSet?
+    @NSManaged public var smallCategory: [String]
+    @NSManaged public var thisYear: [String]
+    @NSManaged public var yearData: Data
+    @NSManaged public var companyBig: NSSet
+    @NSManaged public var companySmall: NSSet
 
 }
 

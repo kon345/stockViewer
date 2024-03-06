@@ -236,7 +236,8 @@ class FileHelper{
     }
     
     // 存大產業資料表
-    func saveCompanyBigCategory(companyData: CompanyData){
+    func saveCompanyBigCategory(companyData: CompanyData) -> [CompanyBigCategory]{
+        var newBigCategoryList: [CompanyBigCategory] = []
         var prevBigCategoryList: [CompanyBigCategory] = []
         // 取大產業表舊資料
         if let bigCategoryList = fetchCompanyBigCategorywithNumber(companyNumber: companyData.number){
@@ -254,23 +255,22 @@ class FileHelper{
         
         // 比對大產業新增
         companyData.bigCategory.forEach { bigCategory in
-            // 就的沒有-->新資料
+            // 舊的沒有-->新資料
             if prevBigCategoryList.allSatisfy({ companyBigCategory in
                 companyBigCategory.bigCategory != bigCategory
             }){
-                if let companyBigCategoryEntity = NSEntityDescription.entity(forEntityName: companyBigCategoryEntityText, in: context),
-                   let companyBigCategoryObject = NSManagedObject(entity: companyBigCategoryEntity, insertInto: context) as? CompanyBigCategory{
-                    companyBigCategoryObject.number = companyData.number
-                    companyBigCategoryObject.bigCategory = bigCategory
-                    // 儲存
-                    CoreDataHelper.shared.saveContext()
-                }
+                let companyBigCategoryObject = CompanyBigCategory(context: context)
+                companyBigCategoryObject.number = companyData.number
+                companyBigCategoryObject.bigCategory = bigCategory
+                newBigCategoryList.append(companyBigCategoryObject)
             }
         }
+        return newBigCategoryList
     }
     
     // 存小產業資料表
-    func saveCompanySmallCategory(companyData: CompanyData){
+    func saveCompanySmallCategory(companyData: CompanyData) -> [CompanySmallCategory]{
+        var newSmallCategoryList: [CompanySmallCategory] = []
         var prevSmallCategoryList: [CompanySmallCategory] = []
         // 取小產業表舊資料
         if let smallCategoryList = fetchCompanySmallCategorywithNumber(companyNumber: companyData.number){
@@ -288,19 +288,29 @@ class FileHelper{
         
         // 比對小產業新增
         companyData.smallCategory.forEach { smallCategory in
-            // 就的沒有-->新資料
+            // 舊的沒有-->新資料
             if prevSmallCategoryList.allSatisfy({ companySmallCategory in
                 companySmallCategory.smallCategory != smallCategory
             }){
-                if let companySmallCategoryEntity = NSEntityDescription.entity(forEntityName: companySmallCategoryEntityText, in: context),
-                   let companySmallCategoryObject = NSManagedObject(entity: companySmallCategoryEntity, insertInto: context) as? CompanySmallCategory{
-                    companySmallCategoryObject.number = companyData.number
-                    companySmallCategoryObject.smallCategory = smallCategory
-                    // 儲存
-                    CoreDataHelper.shared.saveContext()
-                }
+                let companySmallCategoryObject = CompanySmallCategory(context: context)
+                companySmallCategoryObject.number = companyData.number
+                companySmallCategoryObject.smallCategory = smallCategory
+                newSmallCategoryList.append(companySmallCategoryObject)
             }
         }
+        return newSmallCategoryList
+    }
+    
+    // 刪除所有內存資料
+    func deleteAllExistingData(){
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: companyEntityText)
+           let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+           do {
+               try context.execute(batchDeleteRequest)
+           } catch {
+               print("全部資料刪除失敗")
+           }
     }
     
     // 儲存公司
@@ -311,15 +321,13 @@ class FileHelper{
             if let companyObject = fetchCompanywithNumber(companyNumber: companyData.number){
                 company = companyObject
             // 存新一筆資料建立空的coreData Company物件
-            } else if let companyEntity = NSEntityDescription.entity(forEntityName: companyEntityText, in: context),
-                      let companyObject = NSManagedObject(entity: companyEntity, insertInto: context) as? Company{
+            } else {
+                let companyObject = Company(context: context)
                 company = companyObject
-            } else{
-                return
             }
             
-            saveCompanyBigCategory(companyData: companyData)
-            saveCompanySmallCategory(companyData: companyData)
+            let newBigCategoryData = saveCompanyBigCategory(companyData: companyData)
+            let newSmallCategoryData = saveCompanySmallCategory(companyData: companyData)
             
             // 寫入資料
             company.number = companyData.number
@@ -335,6 +343,16 @@ class FileHelper{
                 assertionFailure("轉換yearData錯誤")
             }
             
+            // 關聯
+            newBigCategoryData.forEach { bigCategoryData in
+                company.companyBig.adding(bigCategoryData)
+                bigCategoryData.company = company
+            }
+            
+            newSmallCategoryData.forEach { smallCategoryData in
+                company.companySmall.adding(smallCategoryData)
+                smallCategoryData.company = company
+            }
             // 儲存
             CoreDataHelper.shared.saveContext()
         }

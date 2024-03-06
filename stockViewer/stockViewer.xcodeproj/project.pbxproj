@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA0DCC122B9880DC00200783 /* CompanyDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA0DCC102B9880DC00200783 /* CompanyDataModel.xcdatamodeld */; };
 		BA5A1DE22B562D3D0081D2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1DE12B562D3D0081D2E8 /* AppDelegate.swift */; };
 		BA5A1DE42B562D3D0081D2E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1DE32B562D3D0081D2E8 /* SceneDelegate.swift */; };
 		BA5A1DE92B562D3D0081D2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5A1DE72B562D3D0081D2E8 /* Main.storyboard */; };
@@ -15,7 +16,6 @@
 		BA6746042B5632BC006C7EEA /* FileHandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6746032B5632BC006C7EEA /* FileHandleViewController.swift */; };
 		BA6746062B563322006C7EEA /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6746052B563322006C7EEA /* FileHelper.swift */; };
 		BA94A52A2B873A37001BA82B /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94A5292B873A37001BA82B /* CoreDataHelper.swift */; };
-		BA94A5332B873EEA001BA82B /* CompanyDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA94A5312B873EEA001BA82B /* CompanyDataModel.xcdatamodeld */; };
 		BAACEEA82B8DDCB9002039A4 /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACEEA22B8DDCB9002039A4 /* Company+CoreDataClass.swift */; };
 		BAACEEA92B8DDCB9002039A4 /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACEEA32B8DDCB9002039A4 /* Company+CoreDataProperties.swift */; };
 		BAACEEAA2B8DDCB9002039A4 /* CompanySmallCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACEEA42B8DDCB9002039A4 /* CompanySmallCategory+CoreDataClass.swift */; };
@@ -25,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA0DCC112B9880DC00200783 /* CompanyDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CompanyDataModel.xcdatamodel; sourceTree = "<group>"; };
 		BA5A1DDE2B562D3D0081D2E8 /* stockViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stockViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5A1DE12B562D3D0081D2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA5A1DE32B562D3D0081D2E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +36,6 @@
 		BA6746032B5632BC006C7EEA /* FileHandleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandleViewController.swift; sourceTree = "<group>"; };
 		BA6746052B563322006C7EEA /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		BA94A5292B873A37001BA82B /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		BA94A5322B873EEA001BA82B /* CompanyDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CompanyDataModel.xcdatamodel; sourceTree = "<group>"; };
 		BAACEEA22B8DDCB9002039A4 /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Company+CoreDataClass.swift"; path = "stockViewer/Model/Company+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BAACEEA32B8DDCB9002039A4 /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Company+CoreDataProperties.swift"; path = "stockViewer/Model/Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BAACEEA42B8DDCB9002039A4 /* CompanySmallCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CompanySmallCategory+CoreDataClass.swift"; path = "stockViewer/Model/CompanySmallCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -114,8 +114,8 @@
 		BA5A1DFA2B5631270081D2E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BA0DCC102B9880DC00200783 /* CompanyDataModel.xcdatamodeld */,
 				BA94A5292B873A37001BA82B /* CoreDataHelper.swift */,
-				BA94A5312B873EEA001BA82B /* CompanyDataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,8 +201,8 @@
 				BAACEEAA2B8DDCB9002039A4 /* CompanySmallCategory+CoreDataClass.swift in Sources */,
 				BAACEEAD2B8DDCB9002039A4 /* CompanyBigCategory+CoreDataProperties.swift in Sources */,
 				BAACEEA82B8DDCB9002039A4 /* Company+CoreDataClass.swift in Sources */,
-				BA94A5332B873EEA001BA82B /* CompanyDataModel.xcdatamodeld in Sources */,
 				BAACEEAB2B8DDCB9002039A4 /* CompanySmallCategory+CoreDataProperties.swift in Sources */,
+				BA0DCC122B9880DC00200783 /* CompanyDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,12 +426,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		BA94A5312B873EEA001BA82B /* CompanyDataModel.xcdatamodeld */ = {
+		BA0DCC102B9880DC00200783 /* CompanyDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				BA94A5322B873EEA001BA82B /* CompanyDataModel.xcdatamodel */,
+				BA0DCC112B9880DC00200783 /* CompanyDataModel.xcdatamodel */,
 			);
-			currentVersion = BA94A5322B873EEA001BA82B /* CompanyDataModel.xcdatamodel */;
+			currentVersion = BA0DCC112B9880DC00200783 /* CompanyDataModel.xcdatamodel */;
 			path = CompanyDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

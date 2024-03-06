@@ -21,6 +21,10 @@ class FileHandleViewController: UIViewController {
         openFilePicker()
     }
     
+    @IBAction func deleteAllBtnPressed(_ sender: Any) {
+        FileHelper.shared.deleteAllExistingData()
+    }
+    
     func openFilePicker() {
         let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: acceptTypes, asCopy: true)
         documentPicker.delegate = self

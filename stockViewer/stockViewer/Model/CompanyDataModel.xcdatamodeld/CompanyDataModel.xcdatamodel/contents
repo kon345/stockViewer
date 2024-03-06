@@ -9,13 +9,17 @@
         <attribute name="smallCategory" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
         <attribute name="thisYear" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
         <attribute name="yearData" attributeType="Binary"/>
+        <relationship name="companyBig" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CompanyBigCategory" inverseName="company" inverseEntity="CompanyBigCategory"/>
+        <relationship name="companySmall" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CompanySmallCategory" inverseName="company" inverseEntity="CompanySmallCategory"/>
     </entity>
     <entity name="CompanyBigCategory" representedClassName="CompanyBigCategory" syncable="YES">
         <attribute name="bigCategory" attributeType="String"/>
         <attribute name="number" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="companyBig" inverseEntity="Company"/>
     </entity>
     <entity name="CompanySmallCategory" representedClassName="CompanySmallCategory" syncable="YES">
         <attribute name="number" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="smallCategory" attributeType="String"/>
+        <relationship name="company" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="companySmall" inverseEntity="Company"/>
     </entity>
 </model>
