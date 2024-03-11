@@ -8,13 +8,16 @@ import UIKit
 
 
 class FileHandleViewController: UIViewController {
-
+    
     @IBOutlet weak var importFileBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let home = URL(filePath: NSHomeDirectory())
         print(home)
+        if let companyNumberList = QueryHelper.shared.fetchAllCompanyNumber(), companyNumberList.count > 0{
+            performSegue(withIdentifier: querySegueText, sender: self)
+        }
     }
     
     @IBAction func importFileBtnPressed(_ sender: Any) {
@@ -33,14 +36,14 @@ class FileHandleViewController: UIViewController {
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }
 
 extension FileHandleViewController: UIDocumentPickerDelegate{
@@ -54,13 +57,14 @@ extension FileHandleViewController: UIDocumentPickerDelegate{
                         url.stopAccessingSecurityScopedResource() }
                 }
                 // 操作檔案
-//                let fileName = url.lastPathComponent
-//                let resourceValue = try url.resourceValues(forKeys: [.fileSizeKey])
-//                print(fileName)
+                
                 let content = try String(contentsOf: url, encoding: .utf8)
                 let companyDataList = FileHelper.shared.parseCSVData(csv: content)
                 
                 FileHelper.shared.saveCompany(companies: companyDataList)
+                Task{
+                    performSegue(withIdentifier: querySegueText, sender: self)
+                }
             }
         } catch  {
             print(error.localizedDescription)

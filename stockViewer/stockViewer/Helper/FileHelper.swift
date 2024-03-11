@@ -6,23 +6,7 @@
 //
 
 import Foundation
-import UniformTypeIdentifiers
 import CoreData
-
-let acceptTypes = [UTType(filenameExtension: "csv"), UTType(filenameExtension: "txt")].compactMap{$0}
-let companyNOmin = 1101
-let yearMin = 103
-let yearMax = 112
-let thisYearText = "今年營收"
-let lastYearText = "去年營收"
-let conceptText = "概念成分股:"
-let bigCategoryText = "大產業:"
-let smallCategoryText = "細產業:"
-let companyEntityText = "Company"
-let companyBigCategoryEntityText = "CompanyBigCategory"
-let companySmallCategoryEntityText = "CompanySmallCategory"
-
-let context = CoreDataHelper.shared.managedObjectContext()
 
 struct CompanyData: Codable{
     var number: Int32
@@ -190,57 +174,12 @@ class FileHelper{
         return companies
     }
     
-    // 從coreData藉由公司編號取公司資料
-    func fetchCompanywithNumber(companyNumber: Int32)-> Company?{
-        let predicate = NSPredicate(format: "number == %d", companyNumber)
-        let request = NSFetchRequest<Company>(entityName: companyEntityText)
-        request.predicate = predicate
-        
-        do {
-            let companies = try context.fetch(request)
-            return companies.first
-        } catch {
-            print("沒有對應\(companyNumber)的公司")
-            return nil
-        }
-    }
-    
-    // 從coreData藉由公司編號取大產業類別
-    func fetchCompanyBigCategorywithNumber(companyNumber: Int32) -> [CompanyBigCategory]?{
-        let predicate = NSPredicate(format: "number == %d", companyNumber)
-        let request = NSFetchRequest<CompanyBigCategory>(entityName: companyBigCategoryEntityText)
-        request.predicate = predicate
-        
-        do {
-            let bigCategoryList = try context.fetch(request)
-            return bigCategoryList
-        } catch {
-            print("沒有對應\(companyNumber)的大產業資料")
-            return nil
-        }
-    }
-    
-    // 從coreData藉由公司編號取小產業類別
-    func fetchCompanySmallCategorywithNumber(companyNumber: Int32) -> [CompanySmallCategory]?{
-        let predicate = NSPredicate(format: "number == %d", companyNumber)
-        let request = NSFetchRequest<CompanySmallCategory>(entityName: companySmallCategoryEntityText)
-        request.predicate = predicate
-        
-        do {
-            let smallCategoryList = try context.fetch(request)
-            return smallCategoryList
-        } catch {
-            print("沒有對應\(companyNumber)的小產業資料")
-            return nil
-        }
-    }
-    
     // 存大產業資料表
     func saveCompanyBigCategory(companyData: CompanyData) -> [CompanyBigCategory]{
         var newBigCategoryList: [CompanyBigCategory] = []
         var prevBigCategoryList: [CompanyBigCategory] = []
         // 取大產業表舊資料
-        if let bigCategoryList = fetchCompanyBigCategorywithNumber(companyNumber: companyData.number){
+        if let bigCategoryList = QueryHelper.shared.fetchCompanyBigCategorywithNumber(companyNumber: companyData.number){
             prevBigCategoryList = bigCategoryList
         }
         
@@ -273,7 +212,7 @@ class FileHelper{
         var newSmallCategoryList: [CompanySmallCategory] = []
         var prevSmallCategoryList: [CompanySmallCategory] = []
         // 取小產業表舊資料
-        if let smallCategoryList = fetchCompanySmallCategorywithNumber(companyNumber: companyData.number){
+        if let smallCategoryList = QueryHelper.shared.fetchCompanySmallCategorywithNumber(companyNumber: companyData.number){
             prevSmallCategoryList = smallCategoryList
         }
         
@@ -313,12 +252,34 @@ class FileHelper{
            }
     }
     
+    // 從CoreData中刪除新檔案沒有的資料
+    func deleteRemovedData(oldCompanyNumberList: [Int32], newCompanyNumberList: [Int32]){
+        let old = Set(oldCompanyNumberList)
+        let new = Set(newCompanyNumberList)
+        
+        let difference = old.subtracting(new)
+        let resultArray = Array(difference)
+        
+        resultArray.forEach { removedDataNumber in
+            guard let removedData = QueryHelper.shared.fetchCompanywithNumber(companyNumber: removedDataNumber) else{
+                print("CoreData取的要刪除資料失敗, 編號：\(removedDataNumber)")
+                return
+            }
+            context.delete(removedData)
+        }
+    }
+    
     // 儲存公司
     func saveCompany(companies: [CompanyData]){
+        var newCompanyNumberList: [Int32] = []
+        guard let oldCompanyNumberList = QueryHelper.shared.fetchAllCompanyNumber() else{
+            print("取舊資料公司編號錯誤")
+            return
+        }
         companies.forEach { companyData in
             var company: Company!
             // 取現有資料來修改
-            if let companyObject = fetchCompanywithNumber(companyNumber: companyData.number){
+            if let companyObject = QueryHelper.shared.fetchCompanywithNumber(companyNumber: companyData.number){
                 company = companyObject
             // 存新一筆資料建立空的coreData Company物件
             } else {
@@ -331,6 +292,7 @@ class FileHelper{
             
             // 寫入資料
             company.number = companyData.number
+            newCompanyNumberList.append(companyData.number)
             company.name = companyData.name
             company.bigCategory = companyData.bigCategory
             company.smallCategory = companyData.smallCategory
@@ -343,7 +305,7 @@ class FileHelper{
                 assertionFailure("轉換yearData錯誤")
             }
             
-            // 關聯
+            // 設定關聯
             newBigCategoryData.forEach { bigCategoryData in
                 company.companyBig.adding(bigCategoryData)
                 bigCategoryData.company = company
@@ -356,6 +318,9 @@ class FileHelper{
             // 儲存
             CoreDataHelper.shared.saveContext()
         }
+        
+        deleteRemovedData(oldCompanyNumberList: oldCompanyNumberList, newCompanyNumberList: newCompanyNumberList)
+        CoreDataHelper.shared.saveContext()
     }
 }
 

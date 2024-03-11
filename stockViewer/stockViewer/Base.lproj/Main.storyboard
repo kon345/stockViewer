@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -46,11 +47,137 @@
                     <navigationItem key="navigationItem" id="SQp-hp-1A0"/>
                     <connections>
                         <outlet property="importFileBtn" destination="BT7-g0-JDX" id="tsW-87-QQ4"/>
+                        <segue destination="bw0-RK-Inw" kind="show" identifier="goToQueryPage" id="ndH-Np-KIt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="901.52671755725191" y="-27.464788732394368"/>
+        </scene>
+        <!--Query View Controller-->
+        <scene sceneID="m0g-Mj-XxF">
+            <objects>
+                <viewController id="bw0-RK-Inw" customClass="QueryViewController" customModule="stockViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V1o-n9-2DP">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qmE-ZC-cXd" customClass="JRDropDown">
+                                <rect key="frame" x="130" y="111" width="230" height="28.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedRowColor">
+                                        <color key="value" systemColor="systemCyanColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大產業：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s97-Cf-LPI">
+                                <rect key="frame" x="30" y="115" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="細產業：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSH-e7-CuC">
+                                <rect key="frame" x="30" y="173.66666666666666" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="knv-MS-IaM" customClass="JRDropDown">
+                                <rect key="frame" x="130" y="169.66666666666666" width="230" height="28.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedRowColor">
+                                        <color key="value" systemColor="systemCyanColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司編號：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZX-YL-R2d">
+                                <rect key="frame" x="30" y="232.33333333333334" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ws1-NH-Rlh" customClass="JRDropDown">
+                                <rect key="frame" x="147" y="228.33333333333334" width="213" height="28.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedRowColor">
+                                        <color key="value" name="cyan"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKQ-jW-JzM">
+                                <rect key="frame" x="148" y="307" width="94" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="重置全部"/>
+                                <connections>
+                                    <action selector="resetAllBtnPressed:" destination="bw0-RK-Inw" eventType="touchUpInside" id="HIl-YW-ctJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8d-v9-yCn">
+                                <rect key="frame" x="148" y="372" width="94" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="確定選擇"/>
+                                <connections>
+                                    <action selector="confirmBtnPressed:" destination="bw0-RK-Inw" eventType="touchUpInside" id="46Q-cI-Wms"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LkZ-HS-dRV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ws1-NH-Rlh" firstAttribute="top" secondItem="knv-MS-IaM" secondAttribute="bottom" constant="30" id="0z7-5F-oJt"/>
+                            <constraint firstItem="g8d-v9-yCn" firstAttribute="top" secondItem="jKQ-jW-JzM" secondAttribute="bottom" constant="30" id="5i2-nU-HI4"/>
+                            <constraint firstItem="jKQ-jW-JzM" firstAttribute="top" secondItem="Ws1-NH-Rlh" secondAttribute="bottom" constant="50" id="76v-Un-A9v"/>
+                            <constraint firstItem="knv-MS-IaM" firstAttribute="top" secondItem="qmE-ZC-cXd" secondAttribute="bottom" constant="30" id="DHj-oA-OAn"/>
+                            <constraint firstItem="qmE-ZC-cXd" firstAttribute="leading" secondItem="s97-Cf-LPI" secondAttribute="trailing" constant="30" id="Dbc-Uh-q2U"/>
+                            <constraint firstItem="LkZ-HS-dRV" firstAttribute="trailing" secondItem="knv-MS-IaM" secondAttribute="trailing" constant="30" id="GYe-EY-zeX"/>
+                            <constraint firstItem="LkZ-HS-dRV" firstAttribute="trailing" secondItem="qmE-ZC-cXd" secondAttribute="trailing" constant="30" id="HIM-NW-Pnu"/>
+                            <constraint firstItem="qmE-ZC-cXd" firstAttribute="centerY" secondItem="s97-Cf-LPI" secondAttribute="centerY" id="IuO-yL-TpK"/>
+                            <constraint firstItem="knv-MS-IaM" firstAttribute="leading" secondItem="tSH-e7-CuC" secondAttribute="trailing" constant="30" id="L33-Bh-X8C"/>
+                            <constraint firstItem="qmE-ZC-cXd" firstAttribute="top" secondItem="LkZ-HS-dRV" secondAttribute="top" constant="20" id="NaW-ZO-skW"/>
+                            <constraint firstItem="GZX-YL-R2d" firstAttribute="leading" secondItem="LkZ-HS-dRV" secondAttribute="leading" constant="30" id="W5F-QV-c8K"/>
+                            <constraint firstItem="g8d-v9-yCn" firstAttribute="centerX" secondItem="V1o-n9-2DP" secondAttribute="centerX" id="f8o-zQ-Gqw"/>
+                            <constraint firstItem="Ws1-NH-Rlh" firstAttribute="centerY" secondItem="GZX-YL-R2d" secondAttribute="centerY" id="gT3-u2-x2L"/>
+                            <constraint firstItem="jKQ-jW-JzM" firstAttribute="centerX" secondItem="V1o-n9-2DP" secondAttribute="centerX" id="imX-5c-dNo"/>
+                            <constraint firstItem="tSH-e7-CuC" firstAttribute="leading" secondItem="LkZ-HS-dRV" secondAttribute="leading" constant="30" id="jgY-im-JBI"/>
+                            <constraint firstItem="knv-MS-IaM" firstAttribute="centerY" secondItem="tSH-e7-CuC" secondAttribute="centerY" id="kC1-jL-wo2"/>
+                            <constraint firstItem="s97-Cf-LPI" firstAttribute="leading" secondItem="LkZ-HS-dRV" secondAttribute="leading" constant="30" id="lKb-az-S3B"/>
+                            <constraint firstItem="Ws1-NH-Rlh" firstAttribute="leading" secondItem="GZX-YL-R2d" secondAttribute="trailing" constant="30" id="sZX-Fa-hxq"/>
+                            <constraint firstItem="LkZ-HS-dRV" firstAttribute="trailing" secondItem="Ws1-NH-Rlh" secondAttribute="trailing" constant="30" id="wcA-A0-VK4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="f6n-1t-Biu"/>
+                    <connections>
+                        <outlet property="bigCategoryDropdown" destination="qmE-ZC-cXd" id="Zhq-T8-79S"/>
+                        <outlet property="companyNumberDropdown" destination="Ws1-NH-Rlh" id="BRg-Az-oA6"/>
+                        <outlet property="smallCategoryDropdown" destination="knv-MS-IaM" id="GMM-E2-kYp"/>
+                        <segue destination="UVf-He-QcJ" kind="show" identifier="goToSpreadsheet" id="VwT-We-bZ1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NMM-x3-mfA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1712" y="-28"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="542-Ch-JK3">
+            <objects>
+                <viewController id="UVf-He-QcJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TTk-e5-hrE">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="EUp-F3-5pq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bbb-GO-jq7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WBX-Aj-F6h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2537" y="-29"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mJ4-GQ-MXd">
@@ -72,8 +199,14 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="cyan">
+            <color red="0.023000003769993782" green="0.99699997901916504" blue="0.97200000286102295" alpha="0.89200001955032349" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

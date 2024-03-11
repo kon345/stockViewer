@@ -16,6 +16,10 @@
 		BA6746042B5632BC006C7EEA /* FileHandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6746032B5632BC006C7EEA /* FileHandleViewController.swift */; };
 		BA6746062B563322006C7EEA /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6746052B563322006C7EEA /* FileHelper.swift */; };
 		BA94A52A2B873A37001BA82B /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94A5292B873A37001BA82B /* CoreDataHelper.swift */; };
+		BA9D9DC62B9DAAD5007C579B /* QueryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D9DC52B9DAAD5007C579B /* QueryHelper.swift */; };
+		BA9D9DC82B9DADCB007C579B /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D9DC72B9DADCB007C579B /* Resources.swift */; };
+		BA9D9DCB2B9DAFF3007C579B /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = BA9D9DCA2B9DAFF3007C579B /* iOSDropDown */; };
+		BA9D9DCD2B9DB444007C579B /* QueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D9DCC2B9DB444007C579B /* QueryViewController.swift */; };
 		BAACEEA82B8DDCB9002039A4 /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACEEA22B8DDCB9002039A4 /* Company+CoreDataClass.swift */; };
 		BAACEEA92B8DDCB9002039A4 /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACEEA32B8DDCB9002039A4 /* Company+CoreDataProperties.swift */; };
 		BAACEEAA2B8DDCB9002039A4 /* CompanySmallCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACEEA42B8DDCB9002039A4 /* CompanySmallCategory+CoreDataClass.swift */; };
@@ -36,6 +40,9 @@
 		BA6746032B5632BC006C7EEA /* FileHandleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandleViewController.swift; sourceTree = "<group>"; };
 		BA6746052B563322006C7EEA /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		BA94A5292B873A37001BA82B /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		BA9D9DC52B9DAAD5007C579B /* QueryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHelper.swift; sourceTree = "<group>"; };
+		BA9D9DC72B9DADCB007C579B /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		BA9D9DCC2B9DB444007C579B /* QueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryViewController.swift; sourceTree = "<group>"; };
 		BAACEEA22B8DDCB9002039A4 /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Company+CoreDataClass.swift"; path = "stockViewer/Model/Company+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BAACEEA32B8DDCB9002039A4 /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Company+CoreDataProperties.swift"; path = "stockViewer/Model/Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BAACEEA42B8DDCB9002039A4 /* CompanySmallCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CompanySmallCategory+CoreDataClass.swift"; path = "stockViewer/Model/CompanySmallCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -50,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA9D9DCB2B9DAFF3007C579B /* iOSDropDown in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				BA6746052B563322006C7EEA /* FileHelper.swift */,
+				BA9D9DC52B9DAAD5007C579B /* QueryHelper.swift */,
+				BA9D9DC72B9DADCB007C579B /* Resources.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -107,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				BA6746032B5632BC006C7EEA /* FileHandleViewController.swift */,
+				BA9D9DCC2B9DB444007C579B /* QueryViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -136,6 +147,9 @@
 			dependencies = (
 			);
 			name = stockViewer;
+			packageProductDependencies = (
+				BA9D9DCA2B9DAFF3007C579B /* iOSDropDown */,
+			);
 			productName = stockViewer;
 			productReference = BA5A1DDE2B562D3D0081D2E8 /* stockViewer.app */;
 			productType = "com.apple.product-type.application";
@@ -164,6 +178,9 @@
 				Base,
 			);
 			mainGroup = BA5A1DD52B562D3D0081D2E8;
+			packageReferences = (
+				BA9D9DC92B9DAFF3007C579B /* XCRemoteSwiftPackageReference "iOSDropDown" */,
+			);
 			productRefGroup = BA5A1DDF2B562D3D0081D2E8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -197,12 +214,15 @@
 				BAACEEA92B8DDCB9002039A4 /* Company+CoreDataProperties.swift in Sources */,
 				BA6746042B5632BC006C7EEA /* FileHandleViewController.swift in Sources */,
 				BA5A1DE42B562D3D0081D2E8 /* SceneDelegate.swift in Sources */,
+				BA9D9DC62B9DAAD5007C579B /* QueryHelper.swift in Sources */,
 				BA6746062B563322006C7EEA /* FileHelper.swift in Sources */,
 				BAACEEAA2B8DDCB9002039A4 /* CompanySmallCategory+CoreDataClass.swift in Sources */,
+				BA9D9DC82B9DADCB007C579B /* Resources.swift in Sources */,
 				BAACEEAD2B8DDCB9002039A4 /* CompanyBigCategory+CoreDataProperties.swift in Sources */,
 				BAACEEA82B8DDCB9002039A4 /* Company+CoreDataClass.swift in Sources */,
 				BAACEEAB2B8DDCB9002039A4 /* CompanySmallCategory+CoreDataProperties.swift in Sources */,
 				BA0DCC122B9880DC00200783 /* CompanyDataModel.xcdatamodeld in Sources */,
+				BA9D9DCD2B9DB444007C579B /* QueryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +444,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BA9D9DC92B9DAFF3007C579B /* XCRemoteSwiftPackageReference "iOSDropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jriosdev/iOSDropDown";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BA9D9DCA2B9DAFF3007C579B /* iOSDropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA9D9DC92B9DAFF3007C579B /* XCRemoteSwiftPackageReference "iOSDropDown" */;
+			productName = iOSDropDown;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		BA0DCC102B9880DC00200783 /* CompanyDataModel.xcdatamodeld */ = {
