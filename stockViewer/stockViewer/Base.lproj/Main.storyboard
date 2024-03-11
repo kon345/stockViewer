@@ -163,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="1712" y="-28"/>
         </scene>
-        <!--View Controller-->
+        <!--Spreadsheet View Controller-->
         <scene sceneID="542-Ch-JK3">
             <objects>
-                <viewController id="UVf-He-QcJ" sceneMemberID="viewController">
+                <viewController id="UVf-He-QcJ" customClass="SpreadsheetViewController" customModule="stockViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TTk-e5-hrE">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -149,4 +149,17 @@ class QueryHelper{
         }
         return nil
     }
+    
+    // 解碼yearData
+    func unarchiveYearData(company: Company) -> [Dictionary<Int, [Double]>.Element]?{
+        if let unarchivedData = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(company.yearData) as? [Int: [Double]] {
+            let sortedData = unarchivedData.sorted { $0.key < $1.key }
+            let resultArray = sortedData.map{ $0 }
+            print(resultArray)
+                return resultArray
+            } else {
+                print("解碼\(company.number)公司yearData錯誤")
+                return nil
+            }
+    }
 }

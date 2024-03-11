@@ -1,0 +1,6 @@
+framework module Pods_stockViewer {
+  umbrella header "Pods-stockViewer-umbrella.h"
+
+  export *
+  module * { export * }
+}

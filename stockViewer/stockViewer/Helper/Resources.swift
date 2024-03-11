@@ -28,6 +28,8 @@ let smallCategoryAttributeText = "smallCategory"
 let querySegueText = "goToQueryPage"
 let spreadSheetSegueText = "goToSpreadsheet"
 let pleaseChooseText = "(請選擇）"
+let spreadSheetAttributes = ["年", "EPS", "配息", "配股", "配/EPS(%)", "Q4最低", "H1最高", "H1/Q4", "年最高", "年最低", "Q1EPS", "Q2EPS", "Q3EPS", "Q4EPS", "Qtotal", "股本(億)", "淨值"]
+let spreadsheetCellIdentifier = "SpreadsheetCell"
 
 let context = CoreDataHelper.shared.managedObjectContext()
 let defaults = UserDefaults.standard
