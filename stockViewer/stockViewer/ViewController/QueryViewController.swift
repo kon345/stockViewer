@@ -51,9 +51,14 @@ class QueryViewController: UIViewController {
             
             if let companyNumberList = QueryHelper.shared.fetchCompanyBySmallCategoryResults(companyNumberList: self.bigCategoryResults, smallCategory: selectedText){
                 self.smallCategoryResults = companyNumberList
-                var companyNumberListToString = companyNumberList.map { String($0) }
-                companyNumberListToString.insert(pleaseChooseText, at: 0)
-                self.companyNumberDropdown.optionArray = companyNumberListToString
+                let companyNumberListToString = companyNumberList.map { String($0) }
+                let companyName = companyNumberList.map { companyNumber in
+                    QueryHelper.shared.fetchCompanywithNumber(companyNumber: companyNumber)!.name
+                }
+                var combinedArray = zip(companyNumberListToString, companyName).map { (number, name) in
+                    return "\(number) - \(name)"}
+                combinedArray.insert(pleaseChooseText, at: 0)
+                self.companyNumberDropdown.optionArray = combinedArray
             }
         }
         // 選擇公司編號
@@ -102,3 +107,4 @@ class QueryViewController: UIViewController {
     */
 
 }
+
