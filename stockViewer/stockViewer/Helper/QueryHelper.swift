@@ -92,7 +92,6 @@ class QueryHelper{
         do {
             let results = try context.fetch(request)
             let numbers = results.compactMap { $0.value(forKey: "number") as? Int32 }
-            print(numbers)
             return numbers
         } catch {
             print("第二重篩選取得資料失敗: \(error)")
@@ -155,7 +154,6 @@ class QueryHelper{
         if let unarchivedData = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(company.yearData) as? [Int: [Double]] {
             let sortedData = unarchivedData.sorted { $0.key < $1.key }
             let resultArray = sortedData.map{ $0 }
-            print(resultArray)
                 return resultArray
             } else {
                 print("解碼\(company.number)公司yearData錯誤")

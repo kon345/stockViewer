@@ -78,13 +78,14 @@ class QueryViewController: UIViewController {
         bigCategoryDropdown.selectedIndex = 0
         smallCategoryDropdown.selectedIndex = 0
         companyNumberDropdown.selectedIndex = 0
-        bigCategoryDropdown.text = pleaseChooseText
-        smallCategoryDropdown.text = pleaseChooseText
-        companyNumberDropdown.text = pleaseChooseText
+        bigCategoryDropdown.text = ""
+        smallCategoryDropdown.text = ""
+        companyNumberDropdown.text = ""
         QueryHelper.shared.selectedCompany = 0
     }
     
     @IBAction func confirmBtnPressed(_ sender: Any) {
+        // 都有選擇＆有目標公司才跳表格顯示
         guard QueryHelper.shared.selectedCompany != 0, bigCategoryResults.count > 0, smallCategoryResults.count > 0 else{
             return
         }

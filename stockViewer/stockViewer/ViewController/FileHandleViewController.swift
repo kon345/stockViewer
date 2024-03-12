@@ -13,17 +13,19 @@ class FileHandleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let home = URL(filePath: NSHomeDirectory())
-        print(home)
+//        let home = URL(filePath: NSHomeDirectory())
+//        print(home)
         if let companyNumberList = QueryHelper.shared.fetchAllCompanyNumber(), companyNumberList.count > 0{
             performSegue(withIdentifier: querySegueText, sender: self)
         }
     }
     
+    // 按下匯入
     @IBAction func importFileBtnPressed(_ sender: Any) {
         openFilePicker()
     }
     
+    // 按下刪除全部
     @IBAction func deleteAllBtnPressed(_ sender: Any) {
         FileHelper.shared.deleteAllExistingData()
     }
@@ -50,7 +52,7 @@ extension FileHandleViewController: UIDocumentPickerDelegate{
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         do {
             for url in urls {
-                // 存取權限
+                // 請求存取權限
                 let accessingAuth = url.startAccessingSecurityScopedResource()
                 defer {
                     if accessingAuth {
@@ -67,7 +69,7 @@ extension FileHandleViewController: UIDocumentPickerDelegate{
                 }
             }
         } catch  {
-            print(error.localizedDescription)
+            print("讀取檔案失敗")
         }
     }
 }

@@ -16,6 +16,7 @@ class SpreadsheetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 取目標公司資料
         guard QueryHelper.shared.selectedCompany != 0, let company = QueryHelper.shared.fetchCompanywithNumber(companyNumber: QueryHelper.shared.selectedCompany), let fetchedData = QueryHelper.shared.unarchiveYearData(company: company) else{
             print("取得\(QueryHelper.shared.selectedCompany)公司資料失敗")
             return
@@ -28,6 +29,7 @@ class SpreadsheetViewController: UIViewController {
         view.addSubview(spreadsheetView)
     }
     
+    // 表格大小畫面位置設定
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         spreadsheetView.frame = CGRect(x: 0, y: 100, width: view.frame.size.width, height: view.frame.size.height-100)
@@ -56,10 +58,12 @@ extension SpreadsheetViewController: SpreadsheetViewDataSource, SpreadsheetViewD
         return yearData.count+3
     }
     
+    // 設定格子寬度
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, widthForColumn column: Int) -> CGFloat {
         return 80
     }
     
+    // 設定格子高度
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, heightForRow row: Int) -> CGFloat {
         return 55
     }
@@ -122,6 +126,7 @@ class SpreadsheetCell: Cell{
         contentView.addSubview(label)
     }
     
+    // 設定為文字位置
     override func layoutSubviews() {
         super.layoutSubviews()
         label.frame = contentView.bounds
